@@ -1,12 +1,4 @@
-<h1 align="center">Aplicação que</h1>
-
-- This application was created for generate a certificate.
-
-## 💻 Home Page
-
-- The home pega is prosible register data of the event
-
-- Is possible generate the certificate.
+<h1 align="center">Aplicação para Selecionar a melhor planta para você.</h1>
 
 <p align="center">
 <img src="./demo/demo1.gif" alt="demo1" title="demo1">
