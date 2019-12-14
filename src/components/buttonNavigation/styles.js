@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #000;
+  background-color: #fff;
   width: 800px;
   display: flex;
   flex-direction: row;
@@ -15,11 +15,13 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border-color: #15573f;
+    border: solid 1px #15573f;
+    color: #15573f;
     margin-left: 15px;
     margin-right: 15px;
 
     a {
+      font-size: 15px;
       color: #15573f;
     }
   }

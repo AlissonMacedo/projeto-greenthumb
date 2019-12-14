@@ -8,10 +8,14 @@ export default function buttonNavigation() {
   return (
     <Container>
       <Link to="/Home">
-        <button>Back</button>
+        <button>
+          <a>Back</a>
+        </button>
       </Link>
       <Link to="/Page2">
-        <button>Next</button>
+        <button>
+          <a>Next</a>
+        </button>
       </Link>
     </Container>
   );
