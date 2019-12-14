@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #fff;
+  background-color: #f6f6f6;
   width: 800px;
   display: flex;
   flex-direction: row;
@@ -19,6 +19,7 @@ export const Container = styled.div`
     color: #15573f;
     margin-left: 15px;
     margin-right: 15px;
+    background-color: #f6f6f6;
 
     a {
       font-size: 15px;

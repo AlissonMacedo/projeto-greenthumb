@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 export const Container = styled.div`
-  background-color: #7159c1;
+  background-color: #f6f6f6;
   display: flex;
   width: 800px;
   flex-direction: row;
@@ -21,6 +21,7 @@ export const ButtonSelected = styled.button`
   margin-left: 15px;
   margin-right: 15px;
   background-color: ${props => (props.active ? "#FD9872" : "#FFF")};
+  box-shadow: ${props => (props.active ? "5px 0px 10px #FD9872" : "none")};
 
   h3 {
     font-family: "Montserrat-Light";
