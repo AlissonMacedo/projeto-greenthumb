@@ -2,31 +2,16 @@ import React, { useState } from "react";
 
 import { Container, ButtonSelected } from "./styles";
 
-export default function ButtonSelect() {
+import PropTypes from "prop-types";
+
+import SunHigh from "../../assets/icons/coral/high-sun.svg";
+
+export default function ButtonSelect({ buttons }) {
   const [active, setActive] = useState(null);
-  const [buttons, setButtons] = useState({
-    button: [
-      {
-        id: 1,
-        text: "High sunlight",
-        value: "High"
-      },
-      {
-        id: 2,
-        text: "Low sunlight",
-        value: "Low"
-      },
-      {
-        id: 3,
-        text: "No sunlight",
-        value: "None"
-      }
-    ]
-  });
 
   function handleToggleVisible(id) {
     setActive(id);
-    console.log(active);
+    console.log(buttons);
 
     //setActive(!active);
   }
@@ -39,11 +24,17 @@ export default function ButtonSelect() {
             onClick={() => handleToggleVisible(button.id)}
             active={button.id === active}
           >
-            <img />
-            <h3>{button.text}t</h3>
+            <img
+              src={button.id === active ? button.imageActive : button.image}
+            />
+            <h3>{button.text}</h3>
           </ButtonSelected>
         ))}
       </Container>
     </>
   );
 }
+
+ButtonSelect.propTypes = {
+  buttons: PropTypes.array.isRequired
+};

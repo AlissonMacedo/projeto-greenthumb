@@ -7,8 +7,9 @@ export const Container = styled.div`
   align-items: center;
   width: 25px;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 40px;
   padding-bottom: 30px;
+  margin-left: 40px;
 
   img {
     width: 23px;

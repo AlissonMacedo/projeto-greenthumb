@@ -20,10 +20,13 @@ export const Container = styled.div`
     margin-left: 15px;
     margin-right: 15px;
     background-color: #f6f6f6;
+    :hover {
+      background-color: #15573f;
+      color: #fff;
+    }
 
     a {
       font-size: 15px;
-      color: #15573f;
     }
   }
 `;

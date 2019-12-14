@@ -1,18 +1,23 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import { Container } from "./styles";
 
-import Sun from "../../assets/illustrations/sun.png";
-
-export default function Header() {
+export default function Header({ image, text }) {
   return (
     <>
       <Container>
-        <img src={Sun} alt="sun" />
+        <img src={image} alt="ImageHader" />
         <div>
-          <h3>First, set the amount of sunlight your plant will get</h3>
+          <h3>{text}</h3>
         </div>
       </Container>
     </>
   );
 }
+
+Header.propTypes = {
+  image: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+};
