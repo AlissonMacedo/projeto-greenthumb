@@ -5,7 +5,7 @@ import { Container, ButtonSelected } from "./styles";
 export default function ButtonSelect() {
   const [active, setActive] = useState(null);
   const [buttons, setButtons] = useState({
-    buttons: [
+    button: [
       {
         id: 1,
         text: "High sunlight",
@@ -24,25 +24,25 @@ export default function ButtonSelect() {
     ]
   });
 
-  function handleToggleVisible() {
-    setActive(!active);
+  function handleToggleVisible(id) {
+    setActive(id);
+    console.log(active);
+
+    //setActive(!active);
   }
 
   return (
     <>
       <Container>
-        <ButtonSelected onClick={handleToggleVisible} active={active}>
-          <img />
-          <h3>High sunlight</h3>
-        </ButtonSelected>
-        <ButtonSelected onClick={handleToggleVisible} active={active}>
-          <img />
-          <h3>Low sunlight</h3>
-        </ButtonSelected>
-        <ButtonSelected onClick={handleToggleVisible} active={active}>
-          <img />
-          <h3>No sunlight</h3>
-        </ButtonSelected>
+        {buttons.button.map(button => (
+          <ButtonSelected
+            onClick={() => handleToggleVisible(button.id)}
+            active={button.id === active}
+          >
+            <img />
+            <h3>{button.text}t</h3>
+          </ButtonSelected>
+        ))}
       </Container>
     </>
   );

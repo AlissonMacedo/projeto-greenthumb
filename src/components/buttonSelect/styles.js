@@ -10,7 +10,7 @@ export const Container = styled.div`
   padding: 20px 20px;
 `;
 
-export const ButtonSelected = styled.div`
+export const ButtonSelected = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
