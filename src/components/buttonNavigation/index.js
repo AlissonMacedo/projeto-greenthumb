@@ -24,5 +24,6 @@ export default function buttonNavigation({ pageBack, pageNext }) {
 }
 
 buttonNavigation.propTypes = {
-  pageBack: PropTypes.string.isRequired
+  pageBack: PropTypes.string,
+  pageNext: PropTypes.string
 };
