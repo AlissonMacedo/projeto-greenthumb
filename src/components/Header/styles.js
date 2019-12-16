@@ -28,6 +28,7 @@ export const Container = styled.div`
 
     h3 {
       font-family: "Montserrat-Light";
+      font-weight: normal;
       color: #6e6e6e;
       align-items: center;
       font-size: 30px;

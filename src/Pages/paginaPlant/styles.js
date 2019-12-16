@@ -24,8 +24,8 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-color: #f6f6f6;
     width: 381px;
     height: 495px;
@@ -47,12 +47,37 @@ export const Container = styled.div`
     line-height: 130%;
   }
 
-  > img {
-    width: 204px;
-    height: 238px;
-    padding-top: 36px;
+  div {
+    display: flex;
+    align-self: stretch;
+    flex-direction: column;
+    > span {
+      font-family: "Montserrat-SemiBold";
+      font-weight: normal;
+      font-size: 16px;
+      color: #6E6E6E;
+      height: 27px;
+      margin-top: 30px;
+    }
+    
+    > input {
+      align-self: stretch;
+      height: 40px;
+      background-color: #FFF;
+      border-radius: 20px;
+      padding: 10px 15px;
+      border: solid 0 #f6f6f6;
+      ::placeholder {
+        color: #D0D0D0;
+      }
+      
+      a {
+        font-size: 16px;
+        font-family: "Montserrat-SemiBold";
+
+      }
+    }
   }
-}
 
   button {
     display: flex;
@@ -73,7 +98,9 @@ export const Container = styled.div`
       color: #FFF;
     }
   }
+}
 `;
+
 
 export const DivPlant = styled.div`
   display: flex;

@@ -1,13 +1,16 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
+const height = window.innerHeight;
 
 export const Container = styled.div`
-  background-color: #f6f6f6;
+  background-color: ${props => (props.white ? "#FFF" : "#f6f6f6")};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 25px;
-  height: 600px;
+  height: ${props => (props.active ? "height" : "100%")};
   padding-top: 40px;
   padding-bottom: 30px;
   margin-left: 40px;

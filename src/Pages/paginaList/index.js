@@ -18,7 +18,7 @@ import twoDrops from "../../assets/icons/green/two-drops.svg";
 import threeDrops from "../../assets/icons/green/three-drops.svg";
 
 
-export default function PaginaList() {
+export default function PaginaList({ navigation }) {
   const [products, setProducts] = useState([]);
 
 
@@ -61,7 +61,7 @@ export default function PaginaList() {
   return (
     <> 
       <Master>
-        <LogoLeft />
+        <LogoLeft active={true} />
         <Container>
         <Header image={pick} text="Our picks for you" />
         <ProductList>
@@ -78,14 +78,15 @@ export default function PaginaList() {
                 {water(product.water)}
               </DivImage>
             </div>
-            <button type="button">buy now</button>
+            <Link to={{ pathname: '/paginaPlant', state: product }} >
+              <button type="button">buy now</button>
+            </Link>
+            
           </li>
           ))}
       </ProductList>
         </Container>
       </Master>
-
-
     </>
   );
 }

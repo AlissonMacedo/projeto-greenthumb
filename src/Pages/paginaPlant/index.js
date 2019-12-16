@@ -6,8 +6,7 @@ import PropType from 'prop-types';
 
 import {Master, Container, DivPlant } from './styles';
 
-import envelop from "../../assets/illustrations/envelop.png"
-
+import { Link } from "react-router-dom";
 
 import highSun from "../../assets/icons/coral/high-sun.svg";
 import lowSun from "../../assets/icons/coral/low-sun.svg";
@@ -23,7 +22,7 @@ import toxic from "../../assets/icons/grey/toxic.svg";
 import LogoLeft from "../../components/LogoLeft";
 
 
-export default function PaginaThank(props) {
+export default function PaginaPlant(props) {
   const [plant, setPlant] = useState(props.location.state);
 
 
@@ -109,9 +108,17 @@ export default function PaginaThank(props) {
         </DivPlant>
         <div>
           <form>
-            <h1>Thank you!</h1>
-            <h2>You will hear from us soon. Please check your e-mail!</h2>
-            <img src={envelop} />
+            <h1>Nice pick!</h1>
+            <h2>Tell us your name and e-mail and we will get in touch regarding your order ;)</h2>
+            <div>
+              <span>Name</span>
+              <input placeholder="Crazy Plant Person"/>
+              <span>E-mail</span>
+              <input placeholder="plantperson@email.com" />
+            </div>
+            <Link to={{ pathname: '/paginaThank', state: plant }} >
+              <button>send</button>
+            </Link>
           </form>
         </div>
 
@@ -121,4 +128,4 @@ export default function PaginaThank(props) {
     </>
 
   )
-  }; 
+  };

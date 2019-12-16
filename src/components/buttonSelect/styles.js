@@ -40,6 +40,7 @@ export const ButtonSelected = styled.button`
   h3 {
     padding-top: 22px;
     font-family: "Montserrat-Light";
+    font-weight: normal;
     color: #6e6e6e;
     align-items: center;
     font-size: 16px;
