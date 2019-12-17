@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
-import api from '../../services/api';
+import api from "../../services/api";
+
+import { connect } from "react-redux";
 
 import Header from "../../components/Header";
 import pick from "../../assets/illustrations/pick.png";
@@ -19,76 +21,92 @@ import oneDrop from "../../assets/icons/green/one-drop.svg";
 import twoDrops from "../../assets/icons/green/two-drops.svg";
 import threeDrops from "../../assets/icons/green/three-drops.svg";
 
-
-export default function PaginaList({ navigation }) {
+function PaginaList({ questions }) {
   const [products, setProducts] = useState([]);
+  const [sunapi, setSunApi] = useState(questions.sun.sun);
+  const [waterapi, setWaterApi] = useState(questions.water.water);
+  const [petapi, setPetApi] = useState(questions.pet.pet);
 
+  // useEffect(() => {
+  //   async function loadConst() {
+  //     setSunApi("high");
+  //     setWaterApi("rarely");
+  //     setPetApi("false");
+  //   }
+  //   loadConst();
+  // }, []);
 
+  // `front-plantTest-service?sun=high&water=rarely&pets=false`
   useEffect(() => {
     async function loadPlants() {
-      const response = await api.get()
+      const response = await api.get(
+        `front-plantTest-service?sun=${sunapi}&water=${waterapi}&pets=${petapi}`
+      );
       setProducts(response.data);
-    };
-    loadPlants()
-  }, [])
+    }
+    loadPlants();
+  }, [petapi, sunapi, waterapi]);
 
-  console.log(products)
+  console.log(questions);
 
   function sun(nivel) {
     const state = nivel;
 
     switch (state) {
       case "high":
-        return <img src={highSun} /> ;
+        return <img src={highSun} />;
       case "low":
         return <img src={lowSun} />;
       case "no":
         return <img src={noAnswer} />;
-         }
-  };
+    }
+  }
 
   function water(nivel) {
     const state = nivel;
 
     switch (state) {
       case "rarely":
-        return <img src={oneDrop} /> ;
+        return <img src={oneDrop} />;
       case "regularly":
         return <img src={twoDrops} />;
       case "daily":
         return <img src={threeDrops} />;
-         }
-  };
+    }
+  }
 
   return (
-    <> 
+    <>
       <Master>
         <LogoLeft active={true} />
         <Container>
-        <Header image={pick} text="Our picks for you" />
-        <ProductList>
-        {products.map(product => (
-          <li key={product.id}>
-            <img src={product.url}/>
-            <div>
-              <DivText>
-              <strong>{product.name}</strong>
-              <span>${product.price}</span> 
-              </DivText>
-              <DivImage>
-                {sun(product.sun)}
-                {water(product.water)}
-              </DivImage>
-            </div>
-            <Link to={{ pathname: '/paginaPlant', state: product }} >
-              <button type="button">buy now</button>
-            </Link>
-            
-          </li>
-          ))}
-      </ProductList>
+          <Header image={pick} text="Our picks for you" />
+          <ProductList>
+            {products.map(product => (
+              <li key={product.id}>
+                <img src={product.url} />
+                <div>
+                  <DivText>
+                    <strong>{product.name}</strong>
+                    <span>${product.price}</span>
+                  </DivText>
+                  <DivImage>
+                    {sun(product.sun)}
+                    {water(product.water)}
+                  </DivImage>
+                </div>
+                <Link to={{ pathname: "/paginaPlant", state: product }}>
+                  <button type="button">buy now</button>
+                </Link>
+              </li>
+            ))}
+          </ProductList>
         </Container>
       </Master>
     </>
   );
 }
+
+export default connect(state => ({
+  questions: state.questions
+}))(PaginaList);

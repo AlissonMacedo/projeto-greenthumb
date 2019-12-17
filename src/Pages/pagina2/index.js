@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { Master, Container } from "./styles";
 
@@ -19,32 +19,34 @@ import OneDropActive from "../../assets/icons/white/one-drop.svg";
 import TwoDropsActive from "../../assets/icons/white/two-drops.svg";
 import ThreeDropsActive from "../../assets/icons/white/three-drops.svg";
 
-export default function Pagina2() {
+function Pagina2({ questions }) {
   const [buttons, setButtons] = useState({
     button: [
       {
         id: 1,
-        text: "Rarely",
-        value: "High",
-        image: OneDrop,
+        text: "Daily",
+        water: "High",
+        image: ThreeDrops,
         imageActive: OneDropActive
       },
       {
         id: 2,
         text: "Regulary",
-        value: "Low",
+        water: "Low",
         image: TwoDrops,
         imageActive: TwoDropsActive
       },
       {
         id: 3,
-        text: "Daily",
-        value: "None",
-        image: ThreeDrops,
+        text: "Rarely",
+        water: "None",
+        image: OneDrop,
         imageActive: ThreeDropsActive
       }
     ]
   });
+
+  console.log(questions);
 
   return (
     <>
@@ -55,10 +57,14 @@ export default function Pagina2() {
             image={wateringcan}
             text="How often do you want to water your plant?"
           />
-          <ButtonSelect buttons={buttons} />
+          <ButtonSelect type="QUESTION_WATER" buttons={buttons} />
           <ButtonNavigation pageBack="/pagina1" pageNext="/pagina3" />
         </Container>
       </Master>
     </>
   );
 }
+
+export default connect(state => ({
+  questions: state.questions
+}))(Pagina2);

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import { Container } from "./styles";
 
-export default function buttonNavigation({ pageBack, pageNext }) {
+export default function buttonNavigation({ pageBack, pageNext, state }) {
   return (
     <Container>
       <Link to={pageBack}>

@@ -1,17 +1,23 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
 import { Container, ButtonSelected } from "./styles";
 
 import PropTypes from "prop-types";
 
-import SunHigh from "../../assets/icons/coral/high-sun.svg";
-
-export default function ButtonSelect({ buttons }) {
+export default function ButtonSelect({ buttons, type }) {
+  const dispatch = useDispatch();
   const [active, setActive] = useState(null);
 
-  function handleToggleVisible(id) {
+  function handleToggleVisible(id, button) {
+    dispatch({
+      type: type,
+      button
+    });
     setActive(id);
-    console.log(buttons);
+
+    return id;
 
     //setActive(!active);
   }
@@ -21,7 +27,7 @@ export default function ButtonSelect({ buttons }) {
       <Container>
         {buttons.button.map(button => (
           <ButtonSelected
-            onClick={() => handleToggleVisible(button.id)}
+            onClick={() => handleToggleVisible(button.id, button)}
             active={button.id === active}
           >
             <img
@@ -36,5 +42,5 @@ export default function ButtonSelect({ buttons }) {
 }
 
 ButtonSelect.propTypes = {
-  buttons: PropTypes.array.isRequired
+  buttons: PropTypes.object.isRequired
 };

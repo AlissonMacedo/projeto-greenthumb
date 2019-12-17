@@ -9,20 +9,25 @@ import PaginaList from "../Pages/paginaList";
 import PaginaPlant from "../Pages/paginaPlant";
 import PaginaThank from "../Pages/paginaThank";
 
+import { Provider } from "react-redux";
+import store from "../store";
+
 export default function Routes() {
   return (
     <>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/Home" exact component={Home} />
-          <Route path="/pagina1" component={Pagina1} />
-          <Route path="/pagina2" component={Pagina2} />
-          <Route path="/pagina3" component={Pagina3} />
-          <Route path="/paginalist" component={PaginaList} />
-          <Route path="/paginaPlant"  component={PaginaPlant} />
-          <Route path="/paginaThank"  component={PaginaThank} />
-        </Switch>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/Home" exact component={Home} />
+            <Route path="/pagina1" component={Pagina1} />
+            <Route path="/pagina2" component={Pagina2} />
+            <Route path="/pagina3" component={Pagina3} />
+            <Route path="/paginalist" component={PaginaList} />
+            <Route path="/paginaPlant" component={PaginaPlant} />
+            <Route path="/paginaThank" component={PaginaThank} />
+          </Switch>
+        </BrowserRouter>
+      </Provider>
     </>
   );
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+
 import { Master, Container } from "./styles";
 
 import ButtonNavigation from "../../components/buttonNavigation";
@@ -19,32 +21,34 @@ import SunHighActive from "../../assets/icons/white/high-sun.svg";
 import SunLowActive from "../../assets/icons/white/low-sun.svg";
 import NoAnswerActive from "../../assets/icons/white/no-answer.svg";
 
-export default function Pagina1() {
+function Pagina1({ questions }) {
   const [buttons, setButtons] = useState({
     button: [
       {
         id: 1,
         text: "High sunlight",
-        value: "High",
+        sun: "high",
         image: SunHigh,
         imageActive: SunHighActive
       },
       {
         id: 2,
         text: "Low sunlight",
-        value: "Low",
+        sun: "low",
         image: SunLow,
         imageActive: SunLowActive
       },
       {
         id: 3,
         text: "No sunlight",
-        value: "None",
+        sun: "none",
         image: NoAnswer,
         imageActive: NoAnswerActive
       }
     ]
   });
+
+  console.log(questions);
 
   return (
     <>
@@ -55,10 +59,14 @@ export default function Pagina1() {
             image={Sun}
             text="First, set the amount of sunlight your plant will get"
           />
-          <ButtonSelect buttons={buttons} />
+          <ButtonSelect type="QUESTION_SUN" buttons={buttons} />
           <ButtonNavigation pageBack="/Home" pageNext="/pagina2" />
         </Container>
       </Master>
     </>
   );
 }
+
+export default connect(state => ({
+  questions: state.questions
+}))(Pagina1);

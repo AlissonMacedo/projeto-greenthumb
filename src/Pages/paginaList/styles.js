@@ -1,6 +1,5 @@
-
-import styled from 'styled-components';
-import { darken } from 'polished';
+import styled from "styled-components";
+import { darken } from "polished";
 
 export const Master = styled.div`
   background-color: #f6f6f6;
@@ -32,15 +31,13 @@ export const ProductList = styled.ul`
     flex-direction: column;
     height: 342px;
     width: 268px;
-    background: #FFF;
+    background: #fff;
     border-radius: 6px;
     padding: 20px;
 
     :hover {
-    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.1)
-  }
-
-
+      box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.1);
+    }
 
     > img {
       align-self: center;
@@ -48,10 +45,8 @@ export const ProductList = styled.ul`
       height: 168px;
     }
 
-    
-
     > div {
-      background-color: #FFF;
+      background-color: #fff;
       height: 73px;
       display: flex;
       flex-direction: row;
@@ -60,7 +55,7 @@ export const ProductList = styled.ul`
     }
   }
 
-    button {
+  button {
     width: 213px;
     height: 50px;
     border-radius: 25px;
@@ -71,7 +66,7 @@ export const ProductList = styled.ul`
     color: #15573f;
     margin-left: 15px;
     margin-right: 15px;
-    background-color: #FFF;
+    background-color: #fff;
     :hover {
       background-color: #15573f;
       color: #fff;
@@ -80,41 +75,41 @@ export const ProductList = styled.ul`
     a {
       font-size: 15px;
     }
-}
+  }
 `;
 
 export const DivImage = styled.div`
-  background-color: #FFF;
+  background-color: #fff;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
   margin-top: 45px;
   width: 50px;
 
-  >  img {
-      height: 23px;
-      width: 23px;
-      }
-
+  > img {
+    height: 23px;
+    width: 23px;
+  }
 `;
 
 export const DivText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #FFF;
+  background-color: #fff;
 
-  
   > strong {
-  font-size: 16px;
-  line-height: 20px;
-  color: #15573F;
-  margin-top: 5px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #15573f;
+    margin-top: 5px;
   }
   > span {
-    font-size: 21px;
+    font-size: 18px;
     font-weight: bold;
     margin: 5px 0 5px;
-    color: #6E6E6E;
-    }
+    color: #6e6e6e;
+    font-family: "Montserrat-Light";
+    font-weight: Normal;
+  }
 `;

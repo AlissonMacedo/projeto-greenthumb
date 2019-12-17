@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { Master, Container } from "./styles";
 
@@ -17,25 +17,27 @@ import NoAnswer from "../../assets/icons/coral/no-answer.svg";
 import PetActive from "../../assets/icons/white/pet.svg";
 import NoAnswerActive from "../../assets/icons/white/no-answer.svg";
 
-export default function Pagina3() {
+function Pagina3({ questions }) {
   const [buttons, setButtons] = useState({
     button: [
       {
         id: 1,
         text: "Yes",
-        value: "yes",
+        pet: "true",
         image: Pet,
         imageActive: PetActive
       },
       {
         id: 2,
         text: "No/They don't care",
-        value: "no",
+        pet: "false",
         image: NoAnswer,
         imageActive: NoAnswerActive
       }
     ]
   });
+
+  console.log(questions);
 
   return (
     <>
@@ -43,10 +45,14 @@ export default function Pagina3() {
         <LogoLeft />
         <Container>
           <Header image={dog} text="Do you have pets? Do they chew plants?" />
-          <ButtonSelect buttons={buttons} />
+          <ButtonSelect type="QUESTION_PET" buttons={buttons} />
           <ButtonNavigation pageBack="/pagina2" pageNext="/paginalist" />
         </Container>
       </Master>
     </>
   );
 }
+
+export default connect(state => ({
+  questions: state.questions
+}))(Pagina3);
