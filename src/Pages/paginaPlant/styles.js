@@ -1,8 +1,7 @@
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Master = styled.div`
-  background-color: #FFF;
+  background-color: #fff;
   display: flex;
   height: 100%;
   flex-direction: row;
@@ -13,7 +12,7 @@ export const Master = styled.div`
 `;
 
 export const Container = styled.div`
-  background-color: #FFF;
+  background-color: #fff;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -28,79 +27,84 @@ export const Container = styled.div`
     align-items: flex-start;
     background-color: #f6f6f6;
     width: 381px;
-    height: 495px;
+    min-height: 495px;
     padding: 47px 40px;
 
-  h1 {
-    font-size: 40px;
-    font-family: "Montserrat-Light";
-    font-weight: normal;
-    color: #0C261C;
-  }
-
-  h2 {
-    font-size: 20px;
-    font-family: "Montserrat-Light";
-    font-weight: normal;
-    padding-top: 5px;
-    color: #6E6E6E;
-    line-height: 130%;
-  }
-
-  div {
-    display: flex;
-    align-self: stretch;
-    flex-direction: column;
-    > span {
-      font-family: "Montserrat-SemiBold";
+    h1 {
+      font-size: 40px;
+      font-family: "Montserrat-Light";
       font-weight: normal;
-      font-size: 16px;
-      color: #6E6E6E;
-      height: 27px;
-      margin-top: 30px;
+      color: #0c261c;
     }
-    
-    > input {
+
+    h2 {
+      font-size: 20px;
+      font-family: "Montserrat-Light";
+      font-weight: normal;
+      padding-top: 5px;
+      color: #6e6e6e;
+      line-height: 130%;
+    }
+
+    div {
+      display: flex;
       align-self: stretch;
-      height: 40px;
-      background-color: #FFF;
-      border-radius: 20px;
-      padding: 10px 15px;
-      border: solid 0 #f6f6f6;
-      ::placeholder {
-        color: #D0D0D0;
+      flex-direction: column;
+
+      > span {
+        color: #f71d1d;
+        padding-top: 5px;
+        padding-left: 10px;
       }
-      
-      a {
-        font-size: 16px;
+
+      > h2 {
         font-family: "Montserrat-SemiBold";
+        font-weight: normal;
+        font-size: 16px;
+        color: #6e6e6e;
+        height: 27px;
+        margin-top: 30px;
+      }
 
+      > input {
+        align-self: stretch;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 10px 15px;
+        border: solid 0 #f6f6f6;
+        ::placeholder {
+          color: #d0d0d0;
+        }
+
+        a {
+          font-size: 16px;
+          font-family: "Montserrat-SemiBold";
+        }
+      }
+    }
+
+    button {
+      display: flex;
+      width: 138px;
+      height: 50px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      color: #15573f;
+      border: solid 1px #15573f;
+      border-radius: 25px;
+      margin-top: 32px;
+      margin-left: 160px;
+
+      :hover {
+        background-color: #15573f;
+        color: #fff;
       }
     }
   }
-
-  button {
-    display: flex;
-    width: 138px;
-    height: 50px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFF;
-    color: #15573f;
-    border: solid 1px #15573f;
-    border-radius: 25px; 
-    margin-top: 32px;
-    margin-left: 160px;
-
-    :hover {
-      background-color: #15573f;
-      color: #FFF;
-    }
-  }
-}
 `;
-
 
 export const DivPlant = styled.div`
   display: flex;
@@ -113,14 +117,14 @@ export const DivPlant = styled.div`
     font-size: 50px;
     font-family: "Montserrat-Light";
     font-weight: normal;
-    color: #0C261C;
+    color: #0c261c;
   }
 
   > h2 {
     font-size: 24px;
     font-family: "Montserrat-Light";
     font-weight: Normal;
-    color: #D6D6D6;
+    color: #d6d6d6;
   }
 
   > img {
@@ -144,5 +148,4 @@ export const DivPlant = styled.div`
       padding-left: 15px;
     }
   }
-
 `;

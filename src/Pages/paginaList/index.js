@@ -27,16 +27,6 @@ function PaginaList({ questions }) {
   const [waterapi, setWaterApi] = useState(questions.water.water);
   const [petapi, setPetApi] = useState(questions.pet.pet);
 
-  // useEffect(() => {
-  //   async function loadConst() {
-  //     setSunApi("high");
-  //     setWaterApi("rarely");
-  //     setPetApi("false");
-  //   }
-  //   loadConst();
-  // }, []);
-
-  // `front-plantTest-service?sun=high&water=rarely&pets=false`
   useEffect(() => {
     async function loadPlants() {
       const response = await api.get(
