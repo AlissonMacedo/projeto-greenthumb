@@ -6,8 +6,7 @@ import { Form, Input } from "@rocketseat/unform";
 
 import { Master, Container, DivPlant } from "./styles";
 
-import { Link } from "react-router-dom";
-import api from "../../services/api";
+import { api, api2 } from "../../services/api";
 
 import highSun from "../../assets/icons/coral/high-sun.svg";
 import lowSun from "../../assets/icons/coral/low-sun.svg";
@@ -35,6 +34,8 @@ export default function PaginaPlant(props) {
   const [plant, setPlant] = useState(props.location.state);
 
   console.log(plant);
+
+  function putForm() {}
 
   function sun(nivel) {
     const state = nivel;
@@ -116,12 +117,19 @@ export default function PaginaPlant(props) {
   }
 
   async function handleSubmit({ email, name }) {
-    const response = await api.post("", {
-      name: name,
-      email: email,
-      id: plant.id
-    });
-    console.log(response);
+    try {
+      const response = await api.post(
+        "https://6nrr6n9l50.execute-api.us-east-1.amazonaws.com/default/front-plantTest-service",
+        {
+          name: name,
+          email: email,
+          id: plant.id
+        }
+      );
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
