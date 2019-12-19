@@ -22,15 +22,16 @@ export const ButtonSelected = styled.button`
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 20px;
-  background-color: ${props => (props.active ? "#FD9872" : "#FFF")};
-  box-shadow: ${props => (props.active ? "5px 0px 30px #FD9872" : "none")};
 
-  :hover {
-    box-shadow: ${props =>
-      props.active
-        ? "5px 0px 30px #FD9872"
-        : "5px 0px 20px rgba(0, 0, 0, 0.1)"};
-  }
+  ${props =>
+    props.active
+      ? css`
+          -webkit-box-shadow: 0px 25px 33px -23px rgba(253, 152, 114, 1);
+          -moz-box-shadow: 0px 25px 33px -23px rgba(253, 152, 114, 1);
+          box-shadow: 0px 25px 33px -23px rgba(253, 152, 114, 1);
+        `
+      : null};
+  background-color: ${props => (props.active ? "#FD9872" : "#FFF")};
 
   img {
     height: 56px;

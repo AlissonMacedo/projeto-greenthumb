@@ -18,6 +18,7 @@ export const Container = styled.div`
   img {
     width: 23px;
     height: 208px;
+    margin-bottom: 30px;
   }
 
   div {
@@ -25,6 +26,6 @@ export const Container = styled.div`
     height: 100% !important;
     border: solid 0.2px rgba(21, 87, 63, 0.3);
     margin: 10px;
-    
+    margin-bottom: 50px;
   }
 `;

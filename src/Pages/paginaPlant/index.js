@@ -4,7 +4,7 @@ import PropType from "prop-types";
 
 import { Form, Input } from "@rocketseat/unform";
 
-import { Master, Container, DivPlant } from "./styles";
+import { Master, Container, DivPlant, FormConfirmation } from "./styles";
 
 import { api, api2 } from "../../services/api";
 
@@ -20,11 +20,14 @@ import pet from "../../assets/icons/grey/pet.svg";
 import toxic from "../../assets/icons/grey/toxic.svg";
 
 import LogoLeft from "../../components/LogoLeft";
+import envelop from "../../assets/illustrations/envelop.png";
 
 import * as Yup from "yup";
 
 const schema = Yup.object().shape({
-  name: Yup.string().required("O nome é obrigatório."),
+  name: Yup.string()
+    .required("O nome é obrigatório.")
+    .min(6),
   email: Yup.string()
     .email("Email inválido!")
     .required("E-mail é obrigatório")
@@ -32,6 +35,7 @@ const schema = Yup.object().shape({
 
 export default function PaginaPlant(props) {
   const [plant, setPlant] = useState(props.location.state);
+  const [confirm, setConfirm] = useState(false);
 
   console.log(plant);
 
@@ -126,6 +130,7 @@ export default function PaginaPlant(props) {
           id: plant.id
         }
       );
+      setConfirm(true);
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -147,23 +152,31 @@ export default function PaginaPlant(props) {
             {pet(plant.toxicity)}
           </DivPlant>
           <div>
-            <Form schema={schema} onSubmit={handleSubmit}>
-              <h1>Nice pick!</h1>
-              <h2>
-                Tell us your name and e-mail and we will get in touch regarding
-                your order ;)
-              </h2>
-              <div>
-                <h2>Name</h2>
-                <Input name="name" placeholder="Crazy Plant Person" />
-                <h2>E-mail</h2>
-                <Input name="email" placeholder="plantperson@email.com" />
-              </div>
-              <button type="submit">send</button>
-              {/* <Link to={{ pathname: "/paginaThank", state: plant }}>
+            {!confirm ? (
+              <Form schema={schema} onSubmit={handleSubmit}>
+                <h1>Nice pick!</h1>
+                <h2>
+                  Tell us your name and e-mail and we will get in touch
+                  regarding your order ;)
+                </h2>
+                <div>
+                  <h2>Name</h2>
+                  <Input name="name" placeholder="Crazy Plant Person" />
+                  <h2>E-mail</h2>
+                  <Input name="email" placeholder="plantperson@email.com" />
+                </div>
+                <button type="submit">send</button>
+                {/* <Link to={{ pathname: "/paginaThank", state: plant }}>
                 <button>send</button>
               </Link> */}
-            </Form>
+              </Form>
+            ) : (
+              <FormConfirmation>
+                <h1>Thank you!</h1>
+                <h2>You will hear from us soon. Please check your e-mail!</h2>
+                <img src={envelop} />
+              </FormConfirmation>
+            )}
           </div>
         </Container>
       </Master>

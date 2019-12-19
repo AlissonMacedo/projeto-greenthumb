@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 10px 20px;
+  margin-bottom: 30px;
 
   button {
     width: 100px;

@@ -149,3 +149,57 @@ export const DivPlant = styled.div`
     }
   }
 `;
+
+export const FormConfirmation = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f6f6;
+    width: 381px;
+    height: 495px;
+    padding: 47px 40px;
+
+  h1 {
+    font-size: 40px;
+    font-family: "Montserrat-Light";
+    font-weight: normal;
+    color: #0C261C;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-family: "Montserrat-Light";
+    font-weight: normal;
+    padding-top: 5px;
+    color: #6E6E6E;
+    line-height: 130%;
+  }
+
+  > img {
+    width: 204px;
+    height: 238px;
+    padding-top: 36px;
+  }
+}
+
+  button {
+    display: flex;
+    width: 138px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    color: #15573f;
+    border: solid 1px #15573f;
+    border-radius: 25px; 
+    margin-top: 32px;
+    margin-left: 160px;
+
+    :hover {
+      background-color: #15573f;
+      color: #FFF;
+    }
+  }
+`;
