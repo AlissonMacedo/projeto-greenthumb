@@ -1,4 +1,4 @@
-<h1 align="center">Aplicação para Selecionar a melhor planta para você.</h1>
+<h1 align="center">Application select the best plant for you!</h1>
 
 ## About the project
 
